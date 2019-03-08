@@ -14,6 +14,7 @@ body {
 }
 
 .wrap {
+    position: relative;
     width: 1200px;
     margin: 20px auto;
     background-color: #8769E6;
@@ -95,5 +96,25 @@ body {
 }
 
 .messages {
-    
+    position: absolute;
+    transition: 1s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,10%);
+    width: 700px;
+    text-align: center;
+    height: 350px;
+    line-height: 350px;
+    border-radius: 10px;
+    background-color: #FF606C;
+    color: #fff;
+    font-weight: 900;
+    font-size: 50px;
+    opacity: 0;
 }
+
+.show {
+    transform: translate(-50%,-50%);
+    opacity: 1;
+}
+

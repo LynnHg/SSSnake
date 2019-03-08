@@ -1,5 +1,6 @@
 var sn = [ 42, 41 ], dz = 43, fx = 1, n, ctx = document.getElementById("playground").getContext("2d");
         var scores = document.getElementById("scores");
+        var messages = document.getElementsByClassName("messages")[0];
         var start = document.getElementsByClassName('start')[0];
         var score = 0;
         var flag = 1;
@@ -29,9 +30,16 @@ var sn = [ 42, 41 ], dz = 43, fx = 1, n, ctx = document.getElementById("playgrou
         }
 
         function move() {
+            var timer = 0;
+            var flag = 0;
             sn.unshift(n = sn[0] + fx);
             if (sn.indexOf(n, 1) > 0 || n<0||n>399 || fx == 1 && n % 20 == 0 || fx == -1 && n % 20 == 19)
-                return alert("也太垃圾了吧！");
+            {
+                
+                message(score);
+                flag = 1;
+            }
+           
             draw(n, "Lime");
             if (n == dz) {
                 while (sn.indexOf(dz = ~~(Math.random() * 400)) >= 0);
@@ -40,6 +48,25 @@ var sn = [ 42, 41 ], dz = 43, fx = 1, n, ctx = document.getElementById("playgrou
                 draw(dz, "Yellow");
             } else
                 draw(sn.pop(), "#4785C7");
-                setTimeout(arguments.callee, 130);;
+                timer =  setTimeout(arguments.callee, 130);;
+
+                if (flag) {
+                    clearTimeout(timer);
+                }
         }
-		
+        
+        
+        function message(score) {
+            
+            if (score < 10) setInfo('你也太垃圾了吧!');
+            else if (score < 30) setInfo('你好像有丶东西。');
+            else  setInfo('那你是真得牛批！！！');
+            
+            
+        }
+
+        function setInfo(info) {
+            messages.className += ' show';
+            messages.innerHTML = info;
+           
+        }
