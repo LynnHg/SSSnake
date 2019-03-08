@@ -1,2 +1,2 @@
 # SSSnake
-experience the secret of javascript!
+[在线演示](https://lynnhg.github.io/SSSnake/.)
