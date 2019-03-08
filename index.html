@@ -1,49 +1,37 @@
 <!doctype html>
 <html>
+	
     <head>
-        <style>
-         span {
-             color: aliceblue;
-             font-size: 25px;
-         }
-
-         span:last-child {
-            padding-left: 30px;
-         }
-        </style>
+		<meta charset="utf-8">
+		<title>在线玩蛇</title>
+		<link type="text/css" rel="stylesheet" href="css/index.css">
     </head>
-<body style="background-color:cadetblue">
-    <h2 style="margin: 50px auto;width: 200px;">神笔家族私人定制</h2>
-    <div style="margin: 50px auto;width: 200px;">
-            <span>分数:</span><span></span>
-    </div>
-    
-	<canvas id="can" width="400" height="400" style="background-color: black;margin: 0 auto;display: block;"></canvas>
-	<script>
-		var sn = [ 42, 41 ], dz = 43, fx = 1, n, ctx = document.getElementById("can").getContext("2d");
-        var scores = document.getElementsByTagName('span')[1];
-        var score = 0;
-		function draw(t, c) {
-			ctx.fillStyle = c;
-			ctx.fillRect(t % 20 * 20 + 1, ~~(t / 20) * 20 + 1, 18, 18);
-		}
-		document.onkeydown = function(e) {
-			fx = sn[1] - sn[0] == (n = [ -1, -20, 1, 20 ][(e || event).keyCode - 37] || fx) ? fx : n
-		};
-		!function() {
-			sn.unshift(n = sn[0] + fx);
-			if (sn.indexOf(n, 1) > 0 || n<0||n>399 || fx == 1 && n % 20 == 0 || fx == -1 && n % 20 == 19)
-				return alert("也太垃圾了吧！");
-			draw(n, "Lime");
-			if (n == dz) {
-				while (sn.indexOf(dz = ~~(Math.random() * 400)) >= 0);
-                scores.innerHTML = score;
-                score++;            
-				draw(dz, "Yellow");
-			} else
-				draw(sn.pop(), "Black");
-				setTimeout(arguments.callee, 130);
-		}();
-	</script>
+<body>
+    <div class="wrap">
+		<div class="top">
+			<h1>神笔家族私人定制在线玩蛇</h1>
+			<button class="start">开始游戏</button>
+		</div>	
+		<div class="score">
+			<span id="scores">0</span>
+		</div>
+		<div class="main-left">
+			<canvas id="playground" width="400" height="400"></canvas>
+		</div>
+		<div class="main-right">
+			<h2>操作说明</h2>
+			<div class="key">
+				<span class="arrows"></span>移动
+			</div>
+			<h2>如何开始</h2>
+			<span>点击“开始游戏”即可畅玩游戏</span>
+			<h2>如何重玩</h2>
+			<span>点击网页“刷新”按钮或者按键盘“F5”</span>
+		</div>
+		
+		<div class="messages"></div>
+	</div>
+	
+	<script src="js/index.js"></script>
 </body>
 </html>

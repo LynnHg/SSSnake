@@ -1,0 +1,99 @@
+.clearfix:after {
+    content: ".";
+    height: 0;
+    line-height: 0;
+    display: table;
+    visibility: hidden;
+    clear: both;
+}
+
+body {
+    background-image: url('../img/bg.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrap {
+    width: 1200px;
+    margin: 20px auto;
+    background-color: #8769E6;
+    padding: 15px;
+    overflow: hidden;
+}
+.top{
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.top h1 {
+    font-size: 25px;
+    float: left;
+}
+
+.top .start {
+    width: 80px;
+    height: 30px;
+    background-color: #FEAE1B;
+    border: 0;
+    border-radius: 30px;
+    color: #fff;
+    display: block;
+    float: right;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.top .start:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.score {
+    width: 400px;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+}
+
+.score span {
+    font-size: 40px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.main-left {
+    width: 400px;
+    float: left;
+    overflow: hidden;
+}
+.main-right {
+    width: 600px;
+    float: right;
+    overflow: hidden;
+}
+
+.main-right h2 {
+    font-size: 14px;
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+}
+.key {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    line-height: 60px;
+}
+.main-right .arrows {
+    width: 75px;
+    height: 50px;
+    display: inline-block;
+    background-image: url('../img/help.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#playground {
+    background-color: #645DB9;
+}
+
+.messages {
+    
+}
